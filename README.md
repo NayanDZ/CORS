@@ -38,9 +38,9 @@ Content-Type: application/xml
 Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: www.website.com 
 ```
-#### The header is configured with `Access-Control-Allow-Origin: www.website.com` It means ***Only*** `www.website.com` domain can access the resources.
+#### The header is configured with `Access-Control-Allow-Origin: www.website.com` It means ***Only***✔️ `www.website.com` domain can access the resources.
 
-#### IF header is configured with a wildcard **(*)**. It means **Any domain** can access the resources.
+#### IF header is configured with a wildcard **`( * )`**. It means **Any domain** ☢️  can access the resources.
 ```
 HTTP/1.1 200 OK
 Date: Sat, 16 May 2020 00:2:03 GMT
@@ -48,6 +48,8 @@ Content-Type: application/xml
 Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: *
 ```
+
+#### IF the server does not allow a cross-origin request the you will get error ⚠️ page
 
 ## Detect CORS misconfiguration     
 
