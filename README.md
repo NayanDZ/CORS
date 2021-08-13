@@ -45,9 +45,9 @@ Content-Type: application/xml
 Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: * 
 ```
-The header is configured with a wildcard **(*)**. It means **Any domain** can access the resources.
+#### The header is configured with a wildcard **(*)**. It means **Any domain** can access the resources.
 
-If we get response with the **Access-Control-Allow-Origin: www.website.com** It means only "www.website.com" can access the resources
+#### If we get response with the `Access-Control-Allow-Origin: www.website.com` It means ***Only*** `www.website.com` domain can access the resources
 
 ## POC - Exploite Code
 1. cors.html is the exploit code to exploit misconfigured CORS
