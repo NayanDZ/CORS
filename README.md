@@ -24,6 +24,7 @@ Access-Control-Allow-Origin: vulnerablesite.com
 ```
 
 **Example:** Web client sends a request to get a resource from a different domain, Consider the below Request
+
 A browser initiates AJAX request GET `https:///api.account_detaild`  request to `api.website.com` containing the domain that served the parent page
 ```
 GET /api/account_detaild HTTP/1.1
