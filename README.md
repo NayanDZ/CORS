@@ -123,3 +123,5 @@ Web client sends a request to get a resource from a different domain, Consider t
 - https://hackerone.com/reports/470298 
 
 - https://medium.com/bugbountywriteup/think-outside-the-scope-advanced-cors-exploitation-techniques-dad019c68397
+
+- https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/ 
