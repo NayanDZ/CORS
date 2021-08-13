@@ -51,6 +51,8 @@ Access-Control-Allow-Origin: *
 
 🏴 IF the server does not allow a cross-origin request the you will get error⚠️ page
 
+ ### 2. Preflighted requests
+
 ## Detect CORS misconfiguration     
 
 Identify Response **Access-Control-Allow-Origin** Header 
