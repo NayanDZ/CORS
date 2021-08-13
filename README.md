@@ -4,6 +4,8 @@
 
 Cross-Origin Resource Sharing(CORS) is a mechanism that enables web browsers to perform cross-domain requests using the XMLHttpRequest API in a controlled manner.
 
+Without CORS, websites are restricted to accessing resources from the same origin through what is known as ***same-origin policy***
+
 OWASP TOP 10: A6-Security Misconfiguration vulnerability
 
 ## Detect CORS misconfiguration     
