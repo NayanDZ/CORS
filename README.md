@@ -24,6 +24,7 @@ Access-Control-Allow-Origin: vulnerablesite.com
 ```
 
 **Example:** Web client sends a request to get a resource from a different domain, Consider the below Request
+A browser initiates AJAX request GET `https:///api.account_detaild`  request to `api.website.com` containing the domain that served the parent page
 ```
 GET /api/account_detaild HTTP/1.1
 Host: www.website.com
@@ -31,8 +32,8 @@ User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:60.0) Gecko/20100101 Fire
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 Accept-Language: ru,en-US;q=0.7,en;q=0.3
 Accept-Encoding: gzip, deflate
-Origin: vulnerablesite.com
-Connection: keep-alive
+Origin: www.website.com
+
 ```
 The web client inform to server its source domain using the HTTP request header "Origin". 
 
@@ -40,12 +41,13 @@ You get below response with the **Access-Control-Allow-Origin** header setting.
 ```
 HTTP/1.1 200 OK
 Date: Sat, 16 May 2020 00:2:03 GMT
-Connection: Keep-Alive
 Content-Type: application/xml
 Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: * 
 ```
-The header is configured with a wildcard(*). It means **Any domain** can access the resources.
+The header is configured with a wildcard **(*)**. It means **Any domain** can access the resources.
+
+If we get response with the **Access-Control-Allow-Origin: www.website.com** It means only "www.website.com" can access the resources
 
 ## POC - Exploite Code
 1. cors.html is the exploit code to exploit misconfigured CORS
