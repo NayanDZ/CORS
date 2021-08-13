@@ -8,24 +8,16 @@ Without CORS, websites are restricted to accessing resources from the same origi
 
 OWASP TOP 10: A6-Security Misconfiguration vulnerability
 
-## Detect CORS misconfiguration     
+## CORS Request
 
-Identify Response **Access-Control-Allow-Origin** Header 
+There are two types of CORS requests:
+   1. Simple requests
+   2. Preflighted requests.
 
-1. CORS misconfiguration using wildcards such as (*)
-```
-Access-Control-Allow-Credentials: true
-Access-Control-Allow-Origin: * 
-```
-2. Origin with Other Domain.
-```
-Access-Control-Allow-Credentials: true
-Access-Control-Allow-Origin: vulnerablesite.com 
-```
+ ### 1. Simple requests
+ 
+**Example:** Web browser sends AJAX **GET** `https:///api.account_detaild` request to `api.website.com` containing the domain that served the parent page, Consider the below Request.
 
-**Example:** Web client sends a request to get a resource from a different domain, Consider the below Request
-
-A browser initiates AJAX request GET `https:///api.account_detaild`  request to `api.website.com` containing the domain that served the parent page
 ```
 GET /api/account_detaild HTTP/1.1
 Host: www.website.com
@@ -44,11 +36,35 @@ HTTP/1.1 200 OK
 Date: Sat, 16 May 2020 00:2:03 GMT
 Content-Type: application/xml
 Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: www.website.com 
+```
+#### The header is configured with `Access-Control-Allow-Origin: www.website.com` It means ***Only*** `www.website.com` domain can access the resources.
+
+#### IF header is configured with a wildcard **(*)**. It means **Any domain** can access the resources.
+```
+HTTP/1.1 200 OK
+Date: Sat, 16 May 2020 00:2:03 GMT
+Content-Type: application/xml
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+```
+
+## Detect CORS misconfiguration     
+
+Identify Response **Access-Control-Allow-Origin** Header 
+
+1. CORS misconfiguration using wildcards such as (*)
+```
+Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: * 
 ```
-#### The header is configured with a wildcard **(*)**. It means **Any domain** can access the resources.
+2. Origin with Other Domain.
+```
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: vulnerablesite.com 
+```
+Web client sends a request to get a resource from a different domain, Consider the below Request
 
-#### If we get response with the `Access-Control-Allow-Origin: www.website.com` It means ***Only*** `www.website.com` domain can access the resources
 
 ## POC - Exploite Code
 1. cors.html is the exploit code to exploit misconfigured CORS
