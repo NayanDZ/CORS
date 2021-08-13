@@ -89,7 +89,7 @@ The header is configured with a wildcard(*). It means **Any domain** can access 
 
 * Avoid whitelisting null `Access-Control-Allow-Origin: null`
 
-* CORS defines browser behaviors and is never a replacement for server-side protection of sensitive data - an attacker can directly forge a request from any trusted origin. Therefore, web servers should continue to apply protections over sensitive data, such as authentication and session management, in addition to properly configured CORS
+* CORS defines browser behaviors and is never a replacing for server-side protection of sensitive data - an attacker can directly forge a request from any trusted origin. Therefore, web servers should continue to apply protections over sensitive data such as authentication and session management, in addition to properly configured CORS
 
 ## Refrence
 
