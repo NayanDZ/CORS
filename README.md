@@ -71,7 +71,7 @@ IF the server allows this⬆️ request, then it will respond to the preflight r
 ```
 HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: www.mywebsite.com 
-Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE
+Access-Control-Allow-Methods: POST, PUT, OPTIONS, DELETE
 Access-Control-Max-Age: 223000
 ```
 
