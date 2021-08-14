@@ -53,7 +53,9 @@ Access-Control-Allow-Origin: *
 
  ### 2. Preflighted requests
 
-A CORS preflight request is a CORS request that checks to see if the CORS protocol is understood and a server is aware using specific methods and headers.
+CORS preflight request checks to see if the CORS protocol is understood and a server is aware using specific methods and headers.
+
+When performing certain types of cross-domain Ajax requests, modern browsers that support CORS will initiate an extra "preflight" request to determine whether they have permission to perform the action. Cross-origin requests are preflighted this way because they may have implications to user data.
 
 ## Detect CORS misconfiguration     
 
