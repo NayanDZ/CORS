@@ -93,7 +93,7 @@ Access-Control-Allow-Origin: vulnerablesite.com
 
 
 ## POC - Exploite Code
-1. cors.html is the exploit code to exploit misconfigured CORS
+1. Mentioned below is the exploit code to exploit misconfigured ***Simple requests*** CORS
 
 ```javascript
 <!DOCTYPE html>
@@ -121,7 +121,7 @@ Access-Control-Allow-Origin: vulnerablesite.com
 </html>
 ```
 
-2. You can exploit this misconfiguration CORS using XSS so just replace **payload alert(document.domain)** 
+2. You can exploit this misconfiguration CORS using XSS so just replace payload <scropt>**alert(document.domain)**</script> 
     
     - XSS Payload for Exploite CORS:
 ```javascript
@@ -132,7 +132,8 @@ Access-Control-Allow-Origin: vulnerablesite.com
 ## Remediation
 
 * Allow only **Trusted domains** `Access-Control-Allow-Origin: <origin>` header.
-  E.x: Access-Control-Allow-Origin: https://website.com
+  
+  Example: `Access-Control-Allow-Origin: https://www.mywebsite.com`
 
 * Avoid whitelisting null `Access-Control-Allow-Origin: null`
 
