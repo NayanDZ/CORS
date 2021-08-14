@@ -49,7 +49,7 @@ Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: *
 ```
 
-🏴 IF the server does not allow a cross-origin request the you will get error⚠️ page
+🏴 IF the server does not allow a cross-origin request then you will get error⚠️ page
 
  ### 2. Preflighted requests
 
@@ -74,6 +74,7 @@ Access-Control-Allow-Origin: www.mywebsite.com
 Access-Control-Allow-Methods: POST, PUT, OPTIONS, DELETE
 Access-Control-Max-Age: 223000
 ```
+🏴 IF the server does not allow a cross-origin request then you will get error⚠️ to the OPTIONS request and the browser will not make the actual request.
 
 ## Detect CORS misconfiguration     
 
