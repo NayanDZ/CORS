@@ -139,7 +139,9 @@ Access-Control-Allow-Origin: vulnerablesite.com
 
 * Don't use wildcard selection like: `*.mywebsite.com`
 
-* Always include protocol(https://www) and non-standard ports(8081): i.e `Access-Control-Allow-Origin: https://www.mywebsite.com:8081` 
+* Always include protocol (https://www) and non-standard ports (8081).
+
+     Example: `Access-Control-Allow-Origin: https://www.mywebsite.com:8081` 
 
 * CORS defines browser behaviors and is never a replacing for server-side protection of sensitive data - an attacker can directly forge a request from any trusted origin. Therefore, web servers should continue to apply protections over sensitive data such as authentication and session management, in addition to properly configured CORS
 
