@@ -55,7 +55,9 @@ Access-Control-Allow-Origin: *
 
 ***Preflight request*** is a CORS request that checks to see if the CORS protocol is understood and a server is aware using specific methods and headers.
 
-When performing certain types of cross-domain AJAX requests, browsers will initiate extra "preflight" request to determine whether they have permission to perform the action. CORS requests are preflighted this way because they may have implications to user data.
+It is OPTIONS method request using three HTTP request headers: `Access-Control-Request-Method`, `Access-Control-Request-Headers` & `Origin` header.
+
+When performing certain types of cross-domain AJAX requests, browser first sends an HTTP request using the OPTIONS method (which is called as "preflight" request) to determine whether they have permission to perform the action or if the actual request is safe to send. CORS requests are preflighted this way because they may have implications to user data.
 
 ## Detect CORS misconfiguration     
 
