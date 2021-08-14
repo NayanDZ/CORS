@@ -16,16 +16,16 @@ There are two types of CORS requests:
 
  ### 1. Simple requests
  
-**Example:** Web browser sends AJAX **GET** `https:///api.account_detaild` request to `api.website.com` containing the domain that served the parent page, Consider the below Request.
+**Example:** Web browser sends AJAX **GET** `https:///api.account_detaild` request to `api.mywebsite.com` containing the domain that served the parent page, Consider the below Request.
 
 ```
 GET /api/account_detaild HTTP/1.1
-Host: www.website.com
+Host: www.mywebsite.com
 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 Accept-Language: ru,en-US;q=0.7,en;q=0.3
 Accept-Encoding: gzip, deflate
-Origin: www.website.com
+Origin: www.mywebsite.com
 
 ```
 The web client inform to server its source domain using the HTTP request header "Origin". 
@@ -36,9 +36,9 @@ HTTP/1.1 200 OK
 Date: Sat, 16 May 2020 00:2:03 GMT
 Content-Type: application/xml
 Access-Control-Allow-Credentials: true
-Access-Control-Allow-Origin: www.website.com 
+Access-Control-Allow-Origin: www.mywebsite.com 
 ```
-🏁 The header is configured with `Access-Control-Allow-Origin: www.website.com` It means ***Only***✔️ `www.website.com` domain can access the resources.
+🏁 The header is configured with `Access-Control-Allow-Origin: www.mywebsite.com` It means ***Only***✔️ `www.mywebsite.com` domain can access the resources.
 
 🏴‍☠️ IF header is configured with a wildcard **`( * )`**. It means **Any domain**☢️  can access the resources.
 ```
@@ -53,11 +53,27 @@ Access-Control-Allow-Origin: *
 
  ### 2. Preflighted requests
 
-***Preflight request*** is a CORS request that checks to see if the CORS protocol is understood and a server is aware using specific methods and headers.
+***Preflight request*** is a CORS request that checks to see IF the CORS protocol is understood and a server is aware using specific methods and headers.
 
 It is OPTIONS method request using three HTTP request headers: `Access-Control-Request-Method`, `Access-Control-Request-Headers` & `Origin` header.
 
-When performing certain types of cross-domain AJAX requests, browser first sends an HTTP request using the OPTIONS method (which is called as "preflight" request) to determine whether they have permission to perform the action or if the actual request is safe to send. CORS requests are preflighted this way because they may have implications to user data.
+When performing certain types of cross-domain AJAX requests, browser first sends an HTTP request using the OPTIONS method (which is called as "preflight" request) to determine whether they have permission to perform the action or IF the actual request is safe to send. CORS requests are preflighted this way because they may have implications to user data.
+
+**Example:** Browser send request to server and check IF it would allow a DELETE request, before sending a DELETE request, by using a preflight request:
+```
+OPTIONS /api/account_detaild
+Access-Control-Request-Method: DELETE
+Access-Control-Request-Headers: origin, x-requested-with
+Origin: www.mywebsite.com 
+```
+IF the server allows this⬆️ request, then it will respond to the preflight request with `Access-Control-Allow-Methods` response header, which lists `DELETE`
+
+```
+HTTP/1.1 204 No Content
+Access-Control-Allow-Origin: www.mywebsite.com 
+Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE
+Access-Control-Max-Age: 223000
+```
 
 ## Detect CORS misconfiguration     
 
@@ -73,7 +89,6 @@ Access-Control-Allow-Origin: *
 Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: vulnerablesite.com 
 ```
-Web client sends a request to get a resource from a different domain, Consider the below Request
 
 
 ## POC - Exploite Code
