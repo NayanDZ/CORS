@@ -8,13 +8,6 @@ Without CORS, websites are restricted to accessing resources from the same origi
 
 OWASP TOP 10: A6-Security Misconfiguration vulnerability
 
-### 🔎 How to check website has CORS enabled or not:
-Simply add new request in Header: **Origin: attacker.com** or **Origin: null** 
-
-🏴‍☠️ If you find `Access-Control-Allow-Origin: attacker.com` ***or*** `Access-Control-Allow-Origin: *` ***or*** `Access-Control-Allow-Origin: null` it means domain is ☢️vulnerable.
-
-***Another way to check Insecure CORS:*** `curl www.website.com -H "Origin: http://attacker.com" -I `
-
 ## CORS Request
 
 There are two types of CORS requests:
@@ -84,6 +77,14 @@ Access-Control-Max-Age: 223000
 🏴 IF the server does not allow a cross-origin request then you will get error⚠️ to the OPTIONS request and the browser will not make the actual request.
 
 ## Detect CORS misconfiguration     
+
+Simply add new request in Header: **Origin: attacker.com** or **Origin: null** 
+
+🏴‍☠️ If you find `Access-Control-Allow-Origin: attacker.com` ***or*** `Access-Control-Allow-Origin: *` ***or*** `Access-Control-Allow-Origin: null` it means domain is ☢️vulnerable.
+
+***Another way to check Insecure CORS:*** `curl www.website.com -H "Origin: http://attacker.com" -I `
+
+### 🔎 How to check website has CORS vulnerable or not:
 
 Identify Response **Access-Control-Allow-Origin** Header 
 
