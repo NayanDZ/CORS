@@ -13,6 +13,8 @@ Simply add new request in Header: **Origin: attacker.com** or **Origin: null**
 
 🏴‍☠️ If you find `Access-Control-Allow-Origin: attacker.com` ***or*** `Access-Control-Allow-Origin: *` ***or*** `Access-Control-Allow-Origin: null` it means domain is ☢️vulnerable.
 
+***Another way to check Insecure CORS:*** `curl www.website.com -H "Origin: http://attacker.com" -I `
+
 ## CORS Request
 
 There are two types of CORS requests:
@@ -56,7 +58,7 @@ Access-Control-Allow-Origin: *
 
 🏴 IF the server does not allow a cross-origin request then you will get error⚠️ page
 
- ### 2. Preflighted requests
+### 2. Preflighted requests
 
 ***Preflight request*** is a CORS request that checks to see IF the CORS protocol is understood and a server is aware using specific methods and headers.
 
@@ -85,17 +87,23 @@ Access-Control-Max-Age: 223000
 
 Identify Response **Access-Control-Allow-Origin** Header 
 
-1. CORS misconfiguration using wildcards such as (*)
+1. Origin with null. [Poorly Implemented -> Exploitable]
 ```
 Access-Control-Allow-Credentials: true
-Access-Control-Allow-Origin: * 
+Access-Control-Allow-Origin: null
 ```
-2. Origin with Other Domain.
+
+2. Origin with Other Domain. [Poorly Implemented -> Best Case for Attack]
 ```
 Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin: vulnerablesite.com 
 ```
 
+3. CORS misconfiguration using wildcards such as (*) [Poorly Implemented but -> Not Exploitable]
+```
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: * 
+```
 
 ## POC - Exploite Code
 1. Mentioned below is the exploit code to exploit misconfigured ***Simple requests*** CORS
