@@ -9,9 +9,9 @@ Without CORS, websites are restricted to accessing resources from the same origi
 OWASP TOP 10: A6-Security Misconfiguration vulnerability
 
 ### 🔎 How to check website has CORS enabled or not:
-Simply add new request in Header: **Origin: www.attacker.com** or **Origin: null** 
+Simply add new request in Header: **Origin: attacker.com** or **Origin: null** 
 
-🏴‍☠️ If you find `Access-Control-Allow-Origin: www.attacker.com` or `Access-Control-Allow-Origin: *` or `Access-Control-Allow-Origin: null` it means domain is ☢️vulnerable.
+🏴‍☠️ If you find `Access-Control-Allow-Origin: attacker.com` ***or*** `Access-Control-Allow-Origin: *` ***or*** `Access-Control-Allow-Origin: null` it means domain is ☢️vulnerable.
 
 ## CORS Request
 
