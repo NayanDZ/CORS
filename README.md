@@ -143,7 +143,7 @@ Access-Control-Allow-Origin: *
 ```
 
 
-## Remediation
+## ⛑️ Remediation
 
 * Allow only **Trusted domains** `Access-Control-Allow-Origin: <origin>` header.
   
